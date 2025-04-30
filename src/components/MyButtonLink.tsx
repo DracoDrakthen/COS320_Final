@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../index.css"; // Import your styles
+import "../index.scss"; // Import your styles
 
 const MyButtonLink: React.FC<{ to: string; children: React.ReactNode }> = ({
   to,
