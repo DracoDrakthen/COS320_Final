@@ -15,6 +15,7 @@ export function EditFullName(prop: EditFullNameProp): JSX.Element {
   const [visible, setvisible] = useState(false);
 
   const handleUpdateFullNameClick = async () => {
+    
     const userDoc = doc(db, "User", prop.userEmail);
 
     await updateDoc(userDoc, {

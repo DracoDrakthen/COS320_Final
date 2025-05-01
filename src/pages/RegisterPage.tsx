@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../register_page.css";
+import "../register_page.scss";
 import { auth, db } from "../firebaseConfig";
 import { collection, doc, setDoc } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap");
 @import './styles/variables';
+
+//fixed colors to be ada complient. Follows under variiables scss
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Fredoka", "Segoe UI",
@@ -21,13 +23,13 @@ code {
 header {
   width: 100%;
   padding: 10px;
-  background-color: #0066ff;
+  background-color: $primary-color;
   min-height: 8vh;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: #70ff00;
+  color: $text-color;
 }
 
 header h1 {
@@ -37,7 +39,7 @@ header h1 {
   z-index: 3;
   cursor: pointer;
 }
-
+//buttons
 header button {
   height: 50px;
   width: 100px;
@@ -81,7 +83,7 @@ header .dropdown {
 .searchAndFilter {
   float: left;
   padding-top: calc(2vh + 70px);
-  background-color: #0066ff;
+  background-color: $primary-color;
   position: fixed;
   height: 100vh;
   top: 0;
@@ -90,7 +92,7 @@ header .dropdown {
 .blue-left {
   float: left;
   padding-top: 10vh;
-  background-color: #0066ff;
+  background-color: $primary-color;
   position: fixed;
   height: 100vh;
   top: 0;
@@ -113,15 +115,20 @@ header .dropdown {
   display: inline-block;
   padding: 10px 20px;
   font-size: 18px;
-  background-color: #0d6efd;
-  color: white;
+  background-color: $primary-color;
+  color: $text-color;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
+  transition: $danger-color 0.3s, color 0.3s;
 
+  &:hover {
+    background-color: darken($danger-color, 10%);
+    color: lighten($text-color, 10%);
+  }
+}
+//resource page section
 #resource-page {
-  width: 60%;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: left;
   padding: 1rem;
@@ -134,6 +141,17 @@ header .dropdown {
 
 #resource-page ul {
   list-style: none;
+  //needed a hover feature
+  li a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken($danger-color, 15%);
+      text-decoration: underline;
+    }
+  }
 }
 
 .accountSettings {
@@ -156,4 +174,39 @@ header .dropdown {
 .accountSettings-Content {
   max-width: 800px;
   margin: 0 auto;
+}
+
+
+//adding media query for smaller devices
+@media (max-width: 768px) {
+  .blue-left,
+  .searchAndFilter {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding-top: 1rem;
+  }
+
+  .feedBox {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  .listing,
+  .listing-page .content,
+  #resource-page {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 20px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .my-button-link {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
 }
